@@ -1,0 +1,27 @@
+Input:not([type=submit]) {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+form {
+    width: 50%;
+    margin: 20px 20px;
+    padding: 8px;
+    border: solid black 1px;
+}
+
+Input[type=submit] {
+    width: 20%;
+    position: relative;
+    padding: 12px 0;
+    border: none;
+    background-color: #b3d4fc;
+    color: gray;
+}
+
+Input[type=submit]:hover {
+    background-color: dodgerblue;
+    color: white;
+}

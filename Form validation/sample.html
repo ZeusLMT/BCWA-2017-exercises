@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BCWA2017</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    <main>
+        <p id="test">Select this element and modify it with JavaScript</p>
+        <p class="example">Lets try to select this...</p>
+        <p class="example">...and this simultaneously.</p>
+    </main>
+  
+</body>
+
+<script>
+    "use strict";
+    //select an element with id attribute
+    const pTest = document.querySelector('#test');
+
+    //modify the content
+    pTest.innerHTML = '<a href="http://metropolia.fi">Metropolia</a>';
+
+    //change or add style attributes
+    pTest.setAttribute('style', 'font-weight: bold');
+
+    //select multiple elements
+    const pExample = document.querySelectorAll('.example');
+
+    //pExample will be an array. select each element using [index]
+    pExample[0].innerHTML = 'First p with example class';
+    pExample[1].innerHTML = 'second p with example class';
+
+    //Create event listener
+    /*pExample[0].addEventListener('click', (evt) => {
+        console.log('p clicked');
+    });
+    */
+
+    let texts = [
+        'First p with example class',
+        'second p with example class'
+    ]
+
+    pExample.forEach( (element, index) => {
+        console.log(index);
+        element.addEventListener('click', (event) => {
+            console.log(event.target);
+            event.target.innerHTML = texts[index];
+        })
+    })
+</script>
+
+</html>
