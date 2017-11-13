@@ -1,3 +1,4 @@
+"use strict"
 // Create function 'showImages' which
 // loads images.json which has links to images as an array.
 
@@ -17,3 +18,42 @@
 // Add attributes with setAttribute()
 // Add elements with appendChild
 // When the above HTML is ready append it to the <ul> element
+
+const loadJSON = (query, url) => {
+    const element = document.querySelector(query);
+    fetch(url)
+        .then((response) => {
+            return response.json();
+        })
+        .then((json) => {
+            json.forEach((image) => {
+                const h3 = document.createElement('h3');
+                const figcaption = document.createElement('figcaption');
+                const img = document.createElement('img');
+                const a = document.createElement('a');
+                const figure = document.createElement('figure');
+                const li = document.createElement('li');
+
+                // add text content
+                const text = document.createTextNode(image.mediaTitle);
+                h3.appendChild(text);
+
+                // add attributes
+                img.setAttribute('src', 'img/thumbs/' + image.mediaUrl);
+                a.setAttribute('href', 'img/original/' + image.mediaUrl);
+
+                // nest elements
+                figcaption.appendChild(h3);
+                a.appendChild(img);
+                figure.appendChild(a);
+                figure.appendChild(figcaption);
+                li.appendChild(figure);
+
+                // insert new elements to page
+                element.appendChild(li);
+            })
+
+        })
+};
+
+loadJSON('ul', 'images.json');
