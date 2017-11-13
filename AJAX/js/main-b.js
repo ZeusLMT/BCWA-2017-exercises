@@ -31,8 +31,9 @@ const loadJSON = (query, url) => {
                         <h3>${image.mediaTitle}</h3>
                     </figcaption>
                 </figure>
-            </li>`;
-                element.innerHTML += ("/n" + html);
+            </li>
+             `;
+                element.innerHTML += (html);
             })
 
         })
