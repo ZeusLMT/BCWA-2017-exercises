@@ -28,7 +28,7 @@ const loadJSON = (query, url) => {
         .then((json) => {
             json.forEach((image) => {
                 const h3 = document.createElement('h3');
-                const figcaption = document.createElement('figcaption');
+                const figCaption = document.createElement('figcaption');
                 const img = document.createElement('img');
                 const a = document.createElement('a');
                 const figure = document.createElement('figure');
@@ -39,14 +39,14 @@ const loadJSON = (query, url) => {
                 h3.appendChild(text);
 
                 // add attributes
-                img.setAttribute('src', 'img/thumbs/' + image.mediaUrl);
+                img.setAttribute('src', 'img/thumbs/' + image.mediaThumb);
                 a.setAttribute('href', 'img/original/' + image.mediaUrl);
 
                 // nest elements
-                figcaption.appendChild(h3);
+                figCaption.appendChild(h3);
                 a.appendChild(img);
                 figure.appendChild(a);
-                figure.appendChild(figcaption);
+                figure.appendChild(figCaption);
                 li.appendChild(figure);
 
                 // insert new elements to page

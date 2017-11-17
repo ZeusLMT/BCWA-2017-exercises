@@ -3,7 +3,7 @@
 // adds the loaded HTML content to <ul> element
 const loadHTML = (query, url) => {
     const element = document.querySelector(query);
-    fetch('images.html')
+    fetch(url)
         .then( (response) => {
             return response.text();
         })
